@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 def homepage(request):
@@ -5,3 +6,6 @@ def homepage(request):
 
 def test(request):
     return render(request, "test.html")
+
+def check(request):
+    return HttpResponse("teksheruu")
