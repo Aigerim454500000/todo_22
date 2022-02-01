@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from tabnanny import check
+from unicodedata import name
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, test, check
+from main.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage),
     path("test/", test, name="test"),
-    path("check/", check)
+    path("check/", check),
+    path("add-todo/", add_todo, name="add-todo"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
